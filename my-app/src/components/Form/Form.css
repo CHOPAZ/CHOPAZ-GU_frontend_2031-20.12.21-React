@@ -1,0 +1,26 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 300px;
+  text-align: center;
+}
+input {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.buttonSubmit {
+  display: flex;
+  justify-content: right;
+}
+button {
+    background-color: #525f79;
+    padding: 7px 15px;
+    border-width: 1px;
+    border-radius: 5px;
+    text-align: right;
+    color: #ffffff;
+}

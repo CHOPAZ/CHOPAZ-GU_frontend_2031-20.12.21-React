@@ -1,10 +1,11 @@
 import './Message.css'
-function Message({myFirstText}) {
 
-  return (
-    <div className="Message">
-      <header className="Message-header">{myFirstText}</header>
+function Message ({author, text}) {
 
+  return(
+    <div className='Message'>
+      <h3>{author}</h3>
+      <p>{text}</p>
     </div>
   )
 }
