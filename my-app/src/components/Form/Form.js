@@ -35,7 +35,8 @@ function Form ({messageList, messageBody, setMessageBody, setMessageList, setIsD
             '& > :not(style)': {
             display: 'flex',
             m: 1,
-            width: '35ch',},
+            width: '35ch',
+            flexgrow: 1},
           }}
           noValidate
           autoComplete="off"

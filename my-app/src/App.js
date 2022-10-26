@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Form from './components/Form/Form.js'
 import Message from './components/Message/Message.js';
+import Chats from './components/Chats/Chats.js';
 import './App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
@@ -33,6 +34,7 @@ function App() {
       mode: 'dark',
       background: {
         main: purple[500],
+        secondary: '#1c74e8'
       }
     }
   })
@@ -41,7 +43,8 @@ function App() {
     palette: {
       mode: 'light',
       background: {
-        main: '#11cb5f'
+        main: '#11cb5f',
+        secondary: '#1c74e8'
       },
     }
   })
@@ -51,21 +54,24 @@ function App() {
   return (
     <ThemeProvider theme={isDark ? darkTheme : ligthTheme}>
       <div className="App" background='primary'>
-        <Form className='asd'
-          messageList = { messageList }
-          messageBody = { messageBody }
-          setMessageBody = { setMessageBody }
-          setMessageList = { setMessageList }
-          setIsDark = { setIsDark }
-        />
-        <div>
-          {
-            messageList.map((e, i) =><Message
-              author={e.author}
-              text={e.text}
-              key={i}
-            />)
-          }
+        <Chats/>
+        <div className='content'>
+          <Form
+            messageList = { messageList }
+            messageBody = { messageBody }
+            setMessageBody = { setMessageBody }
+            setMessageList = { setMessageList }
+            setIsDark = { setIsDark }
+          />
+          <div>
+            {
+              messageList.map((e, i) =><Message
+                author={e.author}
+                text={e.text}
+                key={i}
+              />)
+            }
+          </div>
         </div>
       </div>
     </ThemeProvider>
