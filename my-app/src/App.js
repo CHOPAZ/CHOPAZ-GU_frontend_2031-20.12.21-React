@@ -1,40 +1,21 @@
-import { useEffect, useState } from 'react';
-import Form from './components/Form/Form.js'
-import Message from './components/Message/Message.js';
-import Chats from './components/Chats/Chats.js';
+import { useState } from 'react';
+import NavBar from './components/Page/NavBar.js';
+import HomePage from './components/Page/HomePage.js';
+import ProfilePage from './components/Page/ProfilePage.js';
 import './App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
+import { Routes, Route} from "react-router-dom"
+import ChatsPage from './components/Page/ChatsPage.js';
 
 function App() {
-  // list message
-  const [messageList, setMessageList] = useState([])
-  // body message
-  const [messageBody, setMessageBody] = useState({
-    author: '',
-    text: ''
-  })
-
-  // answer by robot
-  const robotMessage = 'Hello, I got your message'
-
-  useEffect(() => {
-    if(messageList.length > 0 && messageList.slice(-1)[0].author !== 'Bot') {
-      setTimeout(() => {
-        setMessageList(pervstate => [...pervstate, {
-          text: robotMessage,
-          author: 'Bot'
-        }])
-      }, 1000)
-    }
-  }, [messageList])
 
   const darkTheme = createTheme ({
     palette: {
       mode: 'dark',
       background: {
         main: purple[500],
-        secondary: '#1c74e8'
+        secondary: '#3ac4fa'
       }
     }
   })
@@ -53,26 +34,15 @@ function App() {
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : ligthTheme}>
-      <div className="App" background='primary'>
-        <Chats/>
-        <div className='content'>
-          <Form
-            messageList = { messageList }
-            messageBody = { messageBody }
-            setMessageBody = { setMessageBody }
-            setMessageList = { setMessageList }
-            setIsDark = { setIsDark }
-          />
-          <div>
-            {
-              messageList.map((e, i) =><Message
-                author={e.author}
-                text={e.text}
-                key={i}
-              />)
-            }
-          </div>
-        </div>
+      <div className="App" background='main'>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element ={<HomePage/>}/>
+          <Route path='chats' element = {<ChatsPage/>}>
+            <Route path=':chatId' element = {<ChatsPage/>}/>
+          </Route>
+          <Route path='*' element = {<ProfilePage/>}/>
+        </Routes>
       </div>
     </ThemeProvider>
 )

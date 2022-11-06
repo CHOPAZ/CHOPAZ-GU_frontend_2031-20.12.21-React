@@ -1,0 +1,44 @@
+.chatsContent {
+  height: 100vh;
+  width: 150px;
+  background: rgb(43, 129, 240);
+  display: flex;
+  flex-direction: column;
+}
+.chatsContent li{
+  display: flex;
+  flex-direction: column;
+}
+.chatsContent div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.chatsContent a {
+  color: white;
+}
+.headerSelectChat{
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  font-size: 35px;
+}
+
+.chatsContent button {
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 5px 15px;
+  width: 100%;
+}
+
+.chatDelete {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
