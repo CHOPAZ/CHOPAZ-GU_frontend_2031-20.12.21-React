@@ -1,0 +1,9 @@
+.HomePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.HomePage h1 {
+  font-size: 35px;
+}
