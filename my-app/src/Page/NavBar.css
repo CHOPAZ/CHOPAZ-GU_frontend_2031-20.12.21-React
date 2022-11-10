@@ -1,0 +1,22 @@
+.navBar{
+  height: 100vh;
+  max-width: 240px;
+  background: #1c74e8;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 10px;
+}
+.navBar h2 {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+.navBar button {
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.navBar a{
+  color: white;
+  font-size: 20px;
+}
