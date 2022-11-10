@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import NavBar from './components/Page/NavBar.js';
-import HomePage from './components/Page/HomePage.js';
-import ProfilePage from './components/Page/ProfilePage.js';
 import './App.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useState } from 'react';
+import NavBar from './Page/NavBar.js';
+import HomePage from './Page/HomePage.js';
+import ChatsPage from './Page/ChatsPage.js';
+import ProfilePage from './Page/ProfilePage.js';
 import { purple } from '@mui/material/colors';
 import { Routes, Route} from "react-router-dom"
-import ChatsPage from './components/Page/ChatsPage.js';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function App() {
 

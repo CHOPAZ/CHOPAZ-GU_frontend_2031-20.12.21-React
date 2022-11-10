@@ -11,7 +11,7 @@ function NavBar () {
         <Link to={'/'}>Home</Link>
       </Button>
       <Button variant="outlined">
-        <Link to={'/chats/chat'}>Chats</Link>
+        <Link to={'/chats'}>Chats</Link>
       </Button>
       <Button variant="outlined">
         <Link to={'/profile'}>Profile</Link>

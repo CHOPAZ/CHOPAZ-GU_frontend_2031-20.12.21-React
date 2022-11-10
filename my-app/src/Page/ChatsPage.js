@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import './ChatsPage.css'
+import '../Page/ChatsPage.css'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Box from '@mui/material/Box'
-import Chat from '../Chats/Chat'
+import Chat from '../components/Chats/Chat.js'
 import Button from '@mui/material/Button';
 import { useTheme } from '@emotion/react'
 
