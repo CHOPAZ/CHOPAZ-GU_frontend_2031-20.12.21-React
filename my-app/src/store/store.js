@@ -1,6 +1,10 @@
-import { applyMiddleware, createStore, compose } from "redux";
-import { checkBoxToggle} from './profile/reducer.js'
+import { configureStore } from '@reduxjs/toolkit'
+import { profileReducer } from './profile/slices'
+import { chatsReducer } from './chats/slices'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-export const store = createStore(checkBoxToggle, composeEnhancers(applyMiddleware()))
+export const store = configureStore({
+  reducer:{
+    toggle: profileReducer,
+    chats: chatsReducer
+  }
+})

@@ -5,52 +5,64 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Box from '@mui/material/Box'
 import Chat from '../components/Chats/Chat.js'
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
 import { useTheme } from '@emotion/react'
+import { useDispatch, useSelector } from 'react-redux'
 
-const chatsPlace = [
-  {   
-    id:"Pavel",
-    messages:[
-        {
-            author:'Pavel',
-            text:'Hello',
-            date: new Date().toLocaleTimeString()
-        },
-        {
-            author:'Bot',
-            text:'Hello to you too',
-            date: new Date().toLocaleTimeString()
-        },
-    ]
-  },
-  {   
-    id:"Olga",
-    messages:[
-      {
-        author:'Olga',
-        text:'Hello',
-        date: new Date().toLocaleTimeString()
-    },
-    {
-        author:'Bot',
-        text:'Hello to you too',
-        date: new Date().toLocaleTimeString()
-    }
-    ]
-  },
-]
+// const chatsPlace = [
+//   {   
+//     id:"Pavel",
+//     messages:[
+//         {
+//             author:'Pavel',
+//             text:'Hello',
+//             date: new Date().toLocaleTimeString()
+//         },
+//         {
+//             author:'Bot',
+//             text:'Hello to you too',
+//             date: new Date().toLocaleTimeString()
+//         },
+//     ]
+//   },
+//   {   
+//     id:"Olga",
+//     messages:[
+//       {
+//         author:'Olga',
+//         text:'Hello',
+//         date: new Date().toLocaleTimeString()
+//     },
+//     {
+//         author:'Bot',
+//         text:'Hello to you too',
+//         date: new Date().toLocaleTimeString()
+//     }
+//     ]
+//   },
+// ]
 
 function ChatList () {
 
-  const [chats, setChats] = useState([])
+  // const [chats, setChats] = useState([])
 
-  useEffect(()=>{
-        setChats(chatsPlace)
-  },[])
+  // useEffect(()=>{
+  //       setChats(chatsPlace)
+  // },[])
 
   const {chatId} = useParams()
   const {palette} = useTheme()
+
+  const chats = useSelector(state => state.chats)
+  const dispatch = useDispatch()
+
+  const  addChat = () => {
+    dispatch(addChat())
+  }
+
+  const deleteChat = () => {
+    dispatch(deleteChat())
+  }
 
   return(
     <div style={{display:'flex', flexGrow:1, background:palette.background.main}}>
@@ -61,9 +73,7 @@ function ChatList () {
                 {
                   chats.map((e, id) =>
                     <div key={id}>
-                      <i style={{cursor:'pointer', display:'flex', justifyContent:'flex-end'}} className="fa-sharp fa-solid fa-xmark" onClick={() => {
-                        setChats([...chats.slice(0, id), ...chats.slice(id + 1)])
-                      }}></i>
+                      <i style={{cursor:'pointer', display:'flex', justifyContent:'flex-end'}} className="fa-sharp fa-solid fa-xmark" onClick={deleteChat}></i>
                       <Button variant="outlined">
                         <Link to={`${id}`}>{e.id}</Link>
                       </Button>
@@ -71,9 +81,7 @@ function ChatList () {
                     
                 }
                 <div>
-                  <Button variant="outlined" onClick={() => {
-                    setChats(e => [...e, chatsPlace[0]])
-                  }} className='buttonNewChat'>New chat</Button>
+                  <Button variant="outlined" onClick={addChat} className='buttonNewChat'>New chat</Button>
                 </div>
             </ListItem>
           </List>
