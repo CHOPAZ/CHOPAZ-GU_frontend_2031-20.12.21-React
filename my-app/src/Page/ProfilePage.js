@@ -7,7 +7,7 @@ function ProfilePage () {
   const {palette} = useTheme()
   const dispatch = useDispatch()
 
-  const { showName, name } = useSelector((state) => state.toggle)
+  const { showName, name } = useSelector((state) => state.profile)
 
   const setShowName = () => {
     dispatch(changeStateProfile())

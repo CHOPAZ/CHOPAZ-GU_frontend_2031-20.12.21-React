@@ -1,5 +1,7 @@
 import { useTheme } from '@emotion/react'
 import './Chat.css'
+
+
 function Chat ({chats}) {
 
   const {palette} = useTheme()

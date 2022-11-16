@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const chatsPlace = [
+ export const initialState = [
   {   
     id:"Pavel",
     messages:[
@@ -35,13 +35,13 @@ const chatsPlace = [
 
 const chatSlice = createSlice({
   name:'chats',
-  chatsPlace,
+  initialState,
   reducers: {
     addChat: (state) => {
-      return [...state, chatsPlace[0]]
+      return [...state, initialState[0]]
     },
-    deleteChat: (state, id) => {
-      return [...state.slice(0, id), ...state.slice(id + 1)]
+    deleteChat: (state) => {
+      return [...state.filter((e, id) =>  id < state.length - 1)]
     }
   }
 })

@@ -4,7 +4,7 @@ import { chatsReducer } from './chats/slices'
 
 export const store = configureStore({
   reducer:{
-    toggle: profileReducer,
+    profile: profileReducer,
     chats: chatsReducer
   }
 })

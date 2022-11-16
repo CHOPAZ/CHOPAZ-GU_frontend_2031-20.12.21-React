@@ -7,11 +7,10 @@ const initialState = {
 
 
 const checkBoxToggle = createSlice({
-  name: 'toggle',
+  name: 'profile',
   initialState,
   reducers:{
     changeStateProfile:(state) => {
-      console.log(state);
       return {
         ...state,
         showName: !state.showName
